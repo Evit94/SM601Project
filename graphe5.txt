@@ -1,0 +1,6 @@
+# Graphe 5 : Graphe deconnecte partiellement (4 sommets)
+4
+3
+0 1 5
+1 2 3
+2 0 -2

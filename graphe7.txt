@@ -1,0 +1,3 @@
+# Graphe 7 : Graphe avec un seul sommet
+1
+0
