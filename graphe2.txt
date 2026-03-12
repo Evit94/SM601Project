@@ -1,0 +1,9 @@
+# Graphe 2 : Graphe complet petit (3 sommets)
+3
+6
+0 1 4
+0 2 11
+1 0 6
+1 2 2
+2 0 3
+2 1 7

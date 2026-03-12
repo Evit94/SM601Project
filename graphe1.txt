@@ -1,0 +1,8 @@
+# Graphe 1 : Exemple du sujet (4 sommets, 5 arcs)
+4
+5
+3 1 25
+1 0 12
+2 0 -25
+0 1 0
+2 1 7
