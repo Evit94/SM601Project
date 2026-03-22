@@ -9,7 +9,8 @@ import math
 import os
 
 # Importer les fonctions algorithmiques
-from floyd_warshall import charger_graphe, floyd_warshall, reconstruire_chemin
+from src.graphe import charger_graphe
+from src.algorithme import floyd_warshall, reconstruire_chemin
 
 
 # ============================================================================
