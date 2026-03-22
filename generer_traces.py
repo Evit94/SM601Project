@@ -1,11 +1,13 @@
 """Script pour generer les traces d'execution de tous les graphes."""
 import subprocess
+import os
 
 traces = ""
 for i in range(1, 11):
     stdin_input = f"{i}\n2\n3\n0\n"
     result = subprocess.run(
-        ["python3", "floyd_warshall.py"],
+        ["python3", "-c",
+         "from src.affichage import menu_principal; menu_principal()"],
         input=stdin_input,
         capture_output=True,
         text=True,
@@ -18,7 +20,8 @@ for i in range(1, 11):
     traces += result.stdout
     traces += "\n\n"
 
-with open("traces_execution.txt", "w") as f:
+os.makedirs("traces", exist_ok=True)
+with open(os.path.join("traces", "traces_execution.txt"), "w") as f:
     f.write(traces)
 
 print("Traces generees avec succes.")

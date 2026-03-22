@@ -9,7 +9,8 @@ import math
 import os
 
 # Importer les fonctions algorithmiques
-from floyd_warshall import charger_graphe, floyd_warshall, reconstruire_chemin
+from src.graphe import charger_graphe
+from src.algorithme import floyd_warshall, reconstruire_chemin
 
 
 # ============================================================================
@@ -116,7 +117,7 @@ class FloydWarshallGUI(tk.Tk):
 
         for idx in range(10):
             num = idx + 1
-            fichier = f"graphe{num}.txt"
+            fichier = os.path.join("graphes", f"graphe{num}.txt")
             existe = os.path.exists(fichier)
             col = idx % 5
             row = idx // 5
