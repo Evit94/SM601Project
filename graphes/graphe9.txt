@@ -1,25 +1,9 @@
-# Graphe 9 : Exemple d'application reelle - Reseau de transport entre villes
-# 8 villes (0=Paris, 1=Lyon, 2=Marseille, 3=Toulouse, 4=Bordeaux, 5=Lille, 6=Strasbourg, 7=Nantes)
-# Les valeurs representent les couts de transport en euros
-8
-20
-0 1 45
-0 5 30
-0 7 40
-1 0 50
-1 2 35
-1 6 55
-2 1 40
-2 3 25
-3 2 30
-3 4 20
-4 0 55
-4 3 25
-4 7 35
-5 0 28
-5 6 50
-6 1 60
-6 5 48
-7 0 38
-7 4 30
-7 3 65
+5
+7
+0 1 1
+0 2 2
+0 3 1
+4 1 3
+2 4 1
+2 3 -2
+3 4 4

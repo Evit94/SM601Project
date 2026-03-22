@@ -111,11 +111,11 @@ class FloydWarshallGUI(tk.Tk):
             fg=COULEURS["texte"],
         ).pack(pady=(0, 20))
 
-        # Grille de boutons 5x2
+        # Grille de boutons 5+5+3
         grille = tk.Frame(corps, bg=COULEURS["bg_principal"])
         grille.pack()
 
-        for idx in range(10):
+        for idx in range(13):
             num = idx + 1
             fichier = os.path.join("graphes", f"graphe{num}.txt")
             existe = os.path.exists(fichier)

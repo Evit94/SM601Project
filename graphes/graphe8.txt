@@ -1,10 +1,9 @@
-# Graphe 8 : Graphe avec beaucoup de valeurs negatives (4 sommets)
-4
+5
 7
-0 1 -1
-0 2 4
-1 2 3
-1 3 2
-2 3 5
-3 0 8
-3 1 1
+0 1 1
+0 2 2
+0 3 1
+1 4 3
+2 4 1
+2 3 1
+3 4 4
