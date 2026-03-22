@@ -116,6 +116,7 @@ def floyd_warshall(n, matrice):
       - L : matrice des distances minimales
       - P : matrice des predecesseurs (pour reconstruire les chemins)
       - circuit_absorbant : booleen indiquant la presence d'un circuit absorbant
+      - etapes : liste des etats intermediaires [(L_k, P_k)] pour k=0..n
     """
     INF = math.inf
 
@@ -131,16 +132,11 @@ def floyd_warshall(n, matrice):
             if i != j and matrice[i][j] != INF:
                 P[i][j] = i
 
-    # Affichage de l'etat initial
-    afficher_matrice(L, n, "L(0) - Matrice des distances initiale")
-    afficher_matrice(P, n, "P(0) - Matrice des predecesseurs initiale", est_matrice_predecesseurs=True)
+    # Sauvegarder l'etat initial
+    etapes = [([row[:] for row in L], [row[:] for row in P])]
 
     # Iterations de Floyd-Warshall
     for k in range(n):
-        print(f"\n{'='*60}")
-        print(f"  Iteration k = {k} (sommet intermediaire : {k})")
-        print(f"{'='*60}")
-
         for i in range(n):
             for j in range(n):
                 if L[i][k] != INF and L[k][j] != INF:
@@ -149,8 +145,8 @@ def floyd_warshall(n, matrice):
                         L[i][j] = nouvelle_distance
                         P[i][j] = P[k][j]
 
-        afficher_matrice(L, n, f"L({k+1}) - Matrice des distances apres passage par {k}")
-        afficher_matrice(P, n, f"P({k+1}) - Matrice des predecesseurs apres passage par {k}", est_matrice_predecesseurs=True)
+        # Sauvegarder l'etat apres chaque iteration k
+        etapes.append(([row[:] for row in L], [row[:] for row in P]))
 
     # Detection de circuit absorbant : si un element diagonal est negatif
     circuit_absorbant = False
@@ -159,7 +155,7 @@ def floyd_warshall(n, matrice):
             circuit_absorbant = True
             break
 
-    return L, P, circuit_absorbant
+    return L, P, circuit_absorbant, etapes
 
 
 # ============================================================================
@@ -303,7 +299,7 @@ def menu_principal():
         print("\n" + "=" * 60)
         print("  EXECUTION DE L'ALGORITHME DE FLOYD-WARSHALL")
         print("=" * 60)
-        L, P, circuit_absorbant = floyd_warshall(n, matrice)
+        L, P, circuit_absorbant, _ = floyd_warshall(n, matrice)
 
         # (6) Detection de circuit absorbant
         print("\n" + "=" * 60)
@@ -332,4 +328,5 @@ def menu_principal():
 # ============================================================================
 
 if __name__ == "__main__":
-    menu_principal()
+    import gui
+    gui.main()
